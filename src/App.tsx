@@ -2,55 +2,23 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar';
+import { Button, Paper } from '@mui/material';
+import CustomButton from './components/CustomButton/CustomButton';
+import RightBox from './components/RightBox/RightBox';
+import { Route, Routes } from 'react-router-dom';
+import Auth from './app/pages/Auth/Auth.page';
+import Dashboard from './app/pages/Dashboard/Dasboard.page';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <ButtonAppBar></ButtonAppBar>
+      <Routes>
+        <Route index element={<Auth></Auth>}></Route>
+        <Route path="auth" element={<Auth></Auth>}></Route>
+        <Route path="dashboard" element={<Dashboard></Dashboard>}></Route>
+      </Routes>
     </div>
   );
 }
